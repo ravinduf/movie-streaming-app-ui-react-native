@@ -247,6 +247,45 @@ const Home = ({ navigation }) => {
       </View>
     )
   }
+
+  const renderContinueWatchingSection = () => {
+    return (
+      <View
+        style={{
+          marginTop: SIZES.padding,
+
+        }}
+      >
+        {/* Header */}
+        <View
+          style={{
+            flexDirection: 'row',
+            paddingHorizontal: SIZES.padding,
+            alignItems: 'center',
+          }}
+        >
+          <Text style={{
+              flex: 1, 
+              color: COLORS.white, ...FONTS.h2
+            }}
+          >
+            Continue Watching...
+          </Text>
+
+          <Image 
+            source={ icons.right_arrow }
+            style={{
+              width: 20,
+              height: 20,
+              tintColor: COLORS.primary
+            }}
+          />
+        </View>
+
+        {/* List */}
+      </View>
+    )
+  }
   return (
     <View
       style={{ 
@@ -264,6 +303,7 @@ const Home = ({ navigation }) => {
       >
         {renderNewSeasonSection()}
         {renderDots()}
+        {renderContinueWatchingSection()}
       </ScrollView>
     </View>
   )
