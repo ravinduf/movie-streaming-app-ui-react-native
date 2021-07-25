@@ -13,6 +13,8 @@ import {
 
 import { dummyData, COLORS, SIZES, FONTS, icons, images } from '../constants'
 
+import { Profiles } from '../components'
+
 const Home = ({ navigation }) => {
 
   const newSeasonScrollX = React.useRef(new Animated.Value(0)).current;
@@ -178,7 +180,8 @@ const Home = ({ navigation }) => {
                           marginTop: 15,
                         }}
                       >
-                        <Text style={{color: COLORS.white, ...FONTS.h4 }}>Still Watching</Text>
+                        <Text style={{color: COLORS.white, ...FONTS.h3 }}>Still Watching</Text>
+                        <Profiles profiles={item.stillWatching}/>
                       </View>
                     )}
                   </View>
@@ -189,6 +192,21 @@ const Home = ({ navigation }) => {
           )
         }}
       />
+    )
+  }
+
+  const renderDots = () => {
+    return (
+      <View
+        style={{
+          marginTop: SIZES.padding,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        
+      </View>
     )
   }
   return (
