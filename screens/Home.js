@@ -119,7 +119,7 @@ const Home = ({ navigation }) => {
                     style={{
                       flexDirection: 'row',
                       height: 60,
-                      width: "100%",
+                      width: "90%",
                       marginBottom: SIZES.radius,
                       paddingHorizontal: SIZES.radius,
                       // backgroundColor: COLORS.primary,
@@ -168,7 +168,19 @@ const Home = ({ navigation }) => {
                             Play Now
                           </Text>
                       </View>
+
+
                     {/* Still watching */}
+                    {item.stillWatching.length > 0 && (
+                      <View
+                        style={{
+                          justifyContent: 'center',
+                          marginTop: 15,
+                        }}
+                      >
+                        <Text style={{color: COLORS.white, ...FONTS.h4 }}>Still Watching</Text>
+                      </View>
+                    )}
                   </View>
 
                 </ImageBackground>
