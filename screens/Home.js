@@ -13,7 +13,7 @@ import {
 
 import { dummyData, COLORS, SIZES, FONTS, icons, images } from '../constants'
 
-import { Profiles } from '../components'
+import { Profiles, ProgressBar } from '../components'
 
 const Home = ({ navigation }) => {
 
@@ -324,6 +324,15 @@ const Home = ({ navigation }) => {
                       {item.name}
                     </Text>
                   {/* Progress Bar */}
+                  <ProgressBar 
+                    containerStyle={{
+                      marginTop: SIZES.radius,
+                    }}
+                    barStyle={{
+                      height: 3
+                    }}
+                    barPercentage={item.overallProgress}
+                  />
                 </View>
               </TouchableWithoutFeedback>
             )
