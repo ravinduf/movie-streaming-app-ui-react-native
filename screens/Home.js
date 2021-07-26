@@ -198,7 +198,7 @@ const Home = ({ navigation }) => {
   const renderDots = () => {
 
     const dotPosition = Animated.divide(newSeasonScrollX, SIZES.width)
-    console.log(dotPosition);
+    // console.log(dotPosition);
     return (
       <View
         style={{
@@ -249,6 +249,7 @@ const Home = ({ navigation }) => {
   }
 
   const renderContinueWatchingSection = () => {
+   
     return (
       <View
         style={{
@@ -260,12 +261,12 @@ const Home = ({ navigation }) => {
         <View
           style={{
             flexDirection: 'row',
+            justifyContent: 'space-between',
             paddingHorizontal: SIZES.padding,
             alignItems: 'center',
           }}
         >
           <Text style={{
-              flex: 1, 
               color: COLORS.white, ...FONTS.h2
             }}
           >
@@ -283,6 +284,52 @@ const Home = ({ navigation }) => {
         </View>
 
         {/* List */}
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            marginTop: SIZES.padding
+          }}
+          data={dummyData.continueWatching}
+          keyExtractor={item => `${item.id}`}
+          renderItem={({ item, index }) => {
+            return (
+              <TouchableWithoutFeedback
+                onPress={() => navigation.navigate("MovieDetail", { selectedMovie: item })}
+              >
+                <View
+                  style={{
+                    marginLeft: index == 0 ? SIZES.padding: 20,
+                    marginRight: index == dummyData.continueWatching.length -1 ? SIZES.padding : 0,
+                  }}
+                >
+                  {/* Thumbnail */}
+                    <Image 
+                      source={item.thumbnail}
+                      resizeMode="center"
+                      style={{
+                        width: SIZES.width / 4,
+                        height: SIZES.width / 3,
+                        borderRadius: 20,
+                      }}
+                    />
+                  {/* Name */}
+                    <Text
+                      style={{
+                        marginTop: SIZES.base, 
+                        color: COLORS.white,
+                        ...FONTS.h4
+                      }}
+                    >
+                      {item.name}
+                    </Text>
+                  {/* Progress Bar */}
+                </View>
+              </TouchableWithoutFeedback>
+            )
+          }}
+
+        ></FlatList>
       </View>
     )
   }
