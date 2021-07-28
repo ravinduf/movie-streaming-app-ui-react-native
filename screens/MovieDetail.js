@@ -227,6 +227,80 @@ const MovieDetail = ({ navigation, route }) => {
     )
   }
 
+  const renderMovieDetails = () => {
+    return (
+      <View
+        style={{
+          flex: 1,
+          paddingHorizontal: SIZES.padding,
+          marginTop: SIZES.padding,
+          justifyContent: 'space-around',
+        }}
+      >
+        {/* Title, running time and progress bar */}
+        <View>
+          {/* Title adn running time */}
+          <View
+            style={{
+              flexDirection: 'row',
+            }}
+          >
+            
+            <Text
+              style={{
+                flex: 1,
+                color: COLORS.white,
+                ...FONTS.h4
+              }}
+            >
+              {selectedMovie?.details?.currentEpisode}
+            </Text>
+
+            <Text
+              style={{
+                display: 'flex',
+                color: COLORS.white,
+                ...FONTS.body4
+              }}
+            >
+              {selectedMovie?.details?.runningTime}
+            </Text>
+          </View>
+          {/* Progress Bar */}
+          <ProgressBar
+            containerStyle={{marginTop: SIZES.radius}}
+            barStyle={{
+              height: 5,
+              borderRadius: 3
+            }}
+            barPercentage={selectedMovie?.details?.progress}
+          />
+
+        </View>
+        {/* Watch */}
+        <TouchableOpacity
+          style={{
+            height: 60,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: Platform.OS === 'ios' ? SIZES.padding * 2 : 0, 
+            borderRadius: 15,
+            backgroundColor: COLORS.primary
+          }}
+        >
+          <Text
+            style={{
+              color: COLORS.white,
+              ...FONTS.h2
+            }}
+          >
+            {selectedMovie?.details?.progress == "0%" ? "WATCH NOW" : "CONTINUE WATCH"}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
+
   return (
     <ScrollView
       contentContainerStyle={{
@@ -240,6 +314,9 @@ const MovieDetail = ({ navigation, route }) => {
     
       {/* Category & Ratings */}
       {renderCategoryAndRatings()}
+
+      {/* Movie Details */}
+      {renderMovieDetails()}
     </ScrollView>
   )
 }
