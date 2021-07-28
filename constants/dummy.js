@@ -149,7 +149,7 @@ export const continueWatching = [
             season: "SEASON 1",
             currentEpisode: 'S4 : E1 "Chapter 40"',
             runningTime: "45m",
-            progress: "50%"
+            progress: "90%"
         }
     },
     {
@@ -165,7 +165,7 @@ export const continueWatching = [
             season: "SEASON 1",
             currentEpisode: 'S1 : E6 "Episode 6 : Swish"',
             runningTime: "45m",
-            progress: "50%"
+            progress: "80%"
         }
     },
     {
