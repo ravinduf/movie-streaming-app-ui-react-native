@@ -145,7 +145,87 @@ const MovieDetail = ({ navigation, route }) => {
     )
   }
 
-  
+  const renderCategoryAndRatings = () => {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: SIZES.base,
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        {/* Age */}
+        <View
+          style={[
+            styles.categoryContainer,
+            {
+              marginLeft: 0
+            }
+          ]}
+        >
+          <Text
+            style={{
+              color:COLORS.white,
+              ...FONTS.h4
+            }}
+          >
+            {selectedMovie?.details?.age}
+          </Text>
+        </View>
+
+
+        {/* Genre */}
+        <View
+          style={[
+            styles.categoryContainer,
+            {
+              paddingHorizontal: SIZES.padding
+            }
+          ]}
+        >
+          <Text
+            style={{
+              color:COLORS.white,
+              ...FONTS.h4
+            }}
+          >
+            {selectedMovie?.details?.genre}
+          </Text>
+        </View>
+
+
+        {/* Ratings */}
+        <View
+          style={[
+            styles.categoryContainer,
+            {
+              justifyContent: 'space-around'
+            }
+          ]
+        }
+        >
+          <Image 
+            source={icons.star}
+            resizeMode="contain"
+            style={{
+              marginRight: 2,
+              width: 15,
+              height: 15,
+            }}
+          />
+          <Text
+            style={{
+              color:COLORS.white,
+              ...FONTS.h4
+            }}
+          > 
+            {selectedMovie?.details?.ratings}
+          </Text>
+        </View>
+      </View>
+    )
+  }
 
   return (
     <ScrollView
@@ -158,9 +238,23 @@ const MovieDetail = ({ navigation, route }) => {
       {/* Header */}
       {renderHeaderSection()}
     
-      
+      {/* Category & Ratings */}
+      {renderCategoryAndRatings()}
     </ScrollView>
   )
 }
 
+
+const styles = StyleSheet.create({
+  categoryContainer: { 
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: SIZES.base,
+    paddingHorizontal: SIZES.base,
+    paddingVertical: 3,
+    borderRadius: SIZES.base,
+    backgroundColor: COLORS.gray1 
+  }
+})
 export default MovieDetail;
